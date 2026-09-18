@@ -236,3 +236,180 @@ fn stride_align(strides: &[usize], elem: ElemType) -> u8 {
 fn pow2_factor(axis: usize) -> u8 {
     axis.trailing_zeros().min(4) as u8
 }
+
+/// The tuner above picks the slowest surviving candidate for an ordinary dense
+/// convolution, because the benchmark it decides on reports each candidate at
+/// roughly the other's cost.
+///
+/// Write-up, evidence and fix plan:
+/// `crates/burn-cubecl/docs/autotune-picks-the-slower-convolution.md`.
+///
+/// ```bash
+/// cargo test -p burn-cubecl --release --features metal \
+///     picks_the_slower -- --ignored --nocapture --test-threads=1
+/// ```
+///
+/// **This test passes while the defect is present.** A failure because the
+/// tuner landed on the fast candidate is the result the document asks for.
+#[cfg(test)]
+mod picks_the_slower {
+    use std::time::Instant;
+
+    use burn_backend::{DType, ops::ConvOptions};
+    use burn_std::Shape;
+    use cubecl::client::Client;
+    use cubek::convolution::AcceleratedTileKind;
+
+    use super::{conv_autotune, conv_gemm_simple_sync};
+    use crate::{
+        CubeDevice,
+        kernel::{
+            conv::conv_direct,
+            matmul::{MatmulStrategy, matmul},
+        },
+        ops::numeric::full,
+        tensor::CubeTensor,
+    };
+
+    /// The widest residual convolution of a dilated TCN, where this was found.
+    /// An ordinary dense layer: `groups = 1`, unit stride, power-of-two
+    /// channels, every dimension a multiple of 8.
+    const BATCH: usize = 128;
+    const CHANNELS: usize = 128;
+    const KERNEL: usize = 5;
+    const DILATION: usize = 4;
+    const PADDING: usize = 16;
+    const LENGTH_IN: usize = 160;
+    const LENGTH_OUT: usize = LENGTH_IN + 2 * PADDING - DILATION * (KERNEL - 1);
+    /// `[BATCH * LENGTH_OUT, REDUCTION] x [REDUCTION, CHANNELS]` is the GEMM
+    /// this convolution reduces to, and it carries the same FLOP count — the
+    /// rate to read the candidates against.
+    const REDUCTION: usize = CHANNELS * KERNEL;
+    const FLOPS: u64 = (2 * BATCH * LENGTH_OUT * CHANNELS * CHANNELS * KERNEL) as u64;
+
+    fn options() -> ConvOptions<1> {
+        ConvOptions::new([1], [PADDING], [DILATION], 1)
+    }
+
+    fn filled(device: &CubeDevice, shape: impl Into<Shape>) -> CubeTensor {
+        full::<f32>(shape.into(), device, 0.031_25)
+    }
+
+    /// Median of five timed runs after twenty untimed ones, with the queue
+    /// drained inside each window.
+    ///
+    /// Twenty, not two: one of the rows below is the tuner itself, and tuning
+    /// resolves asynchronously — until it settles, a tuned call runs whichever
+    /// candidate the tuner has provisionally picked. `matmul` reaches autotune
+    /// internally for the same reason. A short warm-up measures the transient
+    /// rather than the decision.
+    ///
+    /// `op` hands its result back so that nothing it queued is eliminated as
+    /// dead code.
+    fn median_ms(client: &Client, mut op: impl FnMut() -> CubeTensor) -> f64 {
+        let mut sink = None;
+        let mut timed = Vec::new();
+        for run in 0..25 {
+            let start = Instant::now();
+            sink = Some(op());
+            futures_lite::future::block_on(client.sync()).expect("the device drains");
+            if run >= 20 {
+                timed.push(start.elapsed());
+            }
+        }
+        drop(sink);
+
+        timed.sort_unstable();
+        timed[timed.len() / 2].as_secs_f64() * 1e3
+    }
+
+    fn row(label: &str, ms: f64) {
+        println!(
+            "  {label:<26} {ms:>9.3} ms   {:>5.2} TFLOP/s",
+            FLOPS as f64 / (ms / 1e3) / 1e12
+        );
+    }
+
+    /// The two candidates that survive here, measured directly, and the tuner's
+    /// own settled choice next to them.
+    ///
+    /// No autotune log is parsed: which candidate the tuner settled on is
+    /// visible in what a tuned call costs. A tuner deciding on sound numbers
+    /// puts the last row beside the fastest of the rows above it.
+    #[test]
+    #[ignore = "measures a device; run explicitly, see the module docs"]
+    fn the_tuner_settles_on_the_slower_of_two_surviving_candidates() {
+        let device = CubeDevice::default();
+        let client = device.client();
+
+        let input = filled(&device, [BATCH, LENGTH_IN, CHANNELS]);
+        let weight = filled(&device, [CHANNELS, KERNEL, CHANNELS]);
+        let bias = filled(&device, [CHANNELS]);
+
+        let direct = median_ms(&client, || {
+            conv_direct::<1>(input.clone(), weight.clone(), Some(bias.clone()), options())
+                .expect("conv_direct declines nothing")
+        });
+        let accelerated = median_ms(&client, || {
+            conv_gemm_simple_sync::<1>(
+                input.clone(),
+                weight.clone(),
+                Some(bias.clone()),
+                options(),
+                AcceleratedTileKind::Cmma,
+            )
+            .expect("this test needs an accelerated candidate; see the document")
+        });
+        let tuned = median_ms(&client, || {
+            conv_autotune::<1>(input.clone(), weight.clone(), Some(bias.clone()), options())
+        });
+
+        // The same arithmetic on the general matrix path, as the rate this
+        // device actually reaches.
+        let lhs = filled(&device, [BATCH * LENGTH_OUT, REDUCTION]);
+        let rhs = filled(&device, [REDUCTION, CHANNELS]);
+        let gemm = median_ms(&client, || {
+            matmul(
+                lhs.clone(),
+                rhs.clone(),
+                None,
+                MatmulStrategy::default(),
+                DType::F32,
+            )
+            .expect("the GEMM has a candidate")
+        });
+
+        println!("\n=== what the forward tuner settles on ===");
+        println!("  {device:?}, batch {BATCH}, {FLOPS} FLOP each");
+        row("conv_direct", direct);
+        row("simple_sync_cmma", accelerated);
+        row("conv_autotune (settled)", tuned);
+        row("matmul, same FLOP", gemm);
+        println!(
+            "  slower / faster candidate  {:.1}x,  tuner is on the {} one",
+            direct.max(accelerated) / direct.min(accelerated),
+            if (tuned - direct).abs() < (tuned - accelerated).abs() {
+                "conv_direct"
+            } else {
+                "simple_sync_cmma"
+            },
+        );
+
+        let (fast, slow) = (direct.min(accelerated), direct.max(accelerated));
+        assert!(
+            slow / fast >= 2.0,
+            "the two candidates are within {:.1}x of each other, so this shape \
+             no longer shows the tuner a choice worth getting right; pick \
+             another, or update \
+             crates/burn-cubecl/docs/autotune-picks-the-slower-convolution.md",
+            slow / fast,
+        );
+        assert!(
+            tuned > (fast + slow) / 2.0,
+            "a tuned convolution costs {tuned:.3} ms, nearer the {fast:.3} ms \
+             candidate than the {slow:.3} ms one, so the tuner is choosing \
+             correctly now; retire \
+             crates/burn-cubecl/docs/autotune-picks-the-slower-convolution.md",
+        );
+    }
+}

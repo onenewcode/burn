@@ -181,3 +181,94 @@ fn stride_align(strides: &[usize], elem: ElemType) -> u8 {
 fn pow2_factor(axis: usize) -> u8 {
     axis.trailing_zeros().min(4) as u8
 }
+
+/// The data-gradient fallback above is registered under a weight-gradient name,
+/// and `backward_weight/tune.rs` registers the same name for real.
+///
+/// Write-up and fix plan:
+/// `crates/burn-cubecl/docs/dgrad-tunable-registered-as-wgrad.md`.
+///
+/// ```bash
+/// cargo test -p burn-cubecl --features metal dgrad_tunable_name -- --nocapture
+/// ```
+///
+/// No device and no timing: the defect is a string, and what it costs is paid by
+/// whoever reads an autotune log. So this runs in a plain `cargo test`.
+///
+/// **These tests pass while the defect is present.** They fail once the name is
+/// corrected, which is when the document can be retired.
+///
+/// # Why they read source text
+///
+/// A tunable's name is what the autotune logger prints, and nothing exposes it:
+/// `TuneFn::name` is private to `cubecl-runtime`, `TunableSet` has no accessor
+/// for it, and the set is built inline inside [`dgrad_autotune`] rather than
+/// returned. Reading the registration is the only way to observe the thing that
+/// is wrong. Only the part of this file above this module is matched, so what is
+/// found is the registration and never this module's own text about it.
+#[cfg(test)]
+mod dgrad_tunable_name {
+    /// This file's source, up to the attribute that opens this module.
+    fn registration() -> &'static str {
+        include_str!("tune.rs")
+            .split("#[cfg(test)]")
+            .next()
+            .expect("a split yields a first part")
+    }
+
+    /// The tunable that runs `conv_data_backward_fallback` is called
+    /// `wgrad_fallback`, and the function building its inputs is called
+    /// `create_wgrad_input`.
+    #[test]
+    fn the_data_gradient_fallback_is_registered_under_a_wgrad_name() {
+        let source = registration();
+
+        assert!(
+            source.contains("conv_data_backward_fallback::<N>"),
+            "this test is reading the wrong file: no data-gradient fallback is \
+             registered in it",
+        );
+        assert!(
+            source.contains(r#""wgrad_fallback""#) && !source.contains(r#""dgrad_fallback""#),
+            "the data gradient's fallback is no longer registered under a \
+             weight-gradient name; retire \
+             crates/burn-cubecl/docs/dgrad-tunable-registered-as-wgrad.md",
+        );
+        assert!(
+            source.contains("create_wgrad_input"),
+            "the input builder was renamed but the tunable was not, or the other \
+             way round; both halves are in one document: \
+             crates/burn-cubecl/docs/dgrad-tunable-registered-as-wgrad.md",
+        );
+
+        println!("\n=== what this tuner calls its own candidates ===");
+        for line in source.lines() {
+            let line = line.trim();
+            if line.starts_with('"') && line.ends_with("\",") {
+                println!("  {line}");
+            }
+        }
+        println!("  -> the first of these runs conv_data_backward_fallback");
+    }
+
+    /// The name is not merely wrong, it is taken: `backward_weight/tune.rs`
+    /// registers `wgrad_fallback` for its own fallback. Two tuners therefore
+    /// report the same winning name for entirely different kernels, which is
+    /// what makes a log misleading rather than just mislabelled.
+    #[test]
+    fn the_weight_gradient_tuner_registers_the_same_name_for_real() {
+        let wgrad = include_str!("../backward_weight/tune.rs");
+        assert!(
+            wgrad.contains(r#""wgrad_fallback""#)
+                && wgrad.contains("conv_weight_backward_fallback"),
+            "the weight-gradient tuner no longer registers a `wgrad_fallback`, \
+             so the collision is gone; update \
+             crates/burn-cubecl/docs/dgrad-tunable-registered-as-wgrad.md",
+        );
+
+        println!("\n=== the collision ===");
+        println!("  backward_data/tune.rs    \"wgrad_fallback\" -> conv_data_backward_fallback");
+        println!("  backward_weight/tune.rs  \"wgrad_fallback\" -> conv_weight_backward_fallback");
+        println!("  -> a log naming the winner cannot say which tuner won");
+    }
+}
