@@ -422,6 +422,11 @@ impl Slice {
 
     /// Clips the slice to a maximum size.
     ///
+    /// The returned slice uses absolute non-negative bounds and selects the same
+    /// elements as the original slice clipped to `size`, matching
+    /// [`SliceArg::into_slices`]. The step (and therefore the traversal order) is
+    /// preserved.
+    ///
     /// # Example
     ///
     /// ```rust,ignore
@@ -433,27 +438,18 @@ impl Slice {
     ///     Slice::new(0, Some(5), 1));
     /// assert_eq!(
     ///     Slice::new(0, None, -1).bound_to(10),
-    ///     Slice::new(0, Some(-11), -1));
+    ///     Slice::new(0, Some(10), -1));
     /// assert_eq!(
     ///     Slice::new(0, Some(-5), -1).bound_to(10),
-    ///     Slice::new(0, Some(-5), -1));
+    ///     Slice::new(0, Some(5), -1));
     /// ```
     pub fn bound_to(self, size: usize) -> Self {
-        let mut bounds = size as isize;
-
-        if let Some(end) = self.end {
-            if end > 0 {
-                bounds = end.min(bounds);
-            } else {
-                bounds = end.max(-(bounds + 1));
-            }
-        } else if self.is_reversed() {
-            bounds = -(bounds + 1);
-        }
+        let range = self.to_range(size);
 
         Self {
-            end: Some(bounds),
-            ..self
+            start: range.start as isize,
+            end: Some(range.end as isize),
+            step: self.step,
         }
     }
 
@@ -798,12 +794,20 @@ mod tests {
 
         assert_eq!(
             Slice::new(0, None, -1).bound_to(10),
-            Slice::new(0, Some(-11), -1)
+            Slice::new(0, Some(10), -1)
         );
         assert_eq!(
             Slice::new(0, Some(-5), -1).bound_to(10),
-            Slice::new(0, Some(-5), -1)
+            Slice::new(0, Some(5), -1)
         );
+    }
+
+    #[test]
+    fn bound_to_preserves_semantics_for_negative_step() {
+        let original = Slice::new(0, None, -1);
+        let bounded = original.bound_to(10);
+        assert_eq!(bounded.output_size(10), original.output_size(10));
+        assert_eq!(bounded.to_range(10), original.to_range(10));
     }
 
     #[test]
