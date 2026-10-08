@@ -1,0 +1,3 @@
+second iterator blocked while first is retained: true
+after dropping first: Some(Ok([0]))
+sequential reuse control: 200 batches

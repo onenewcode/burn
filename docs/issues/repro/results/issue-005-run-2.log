@@ -1,0 +1,7 @@
+get(0)
+next: Some(Err(DatasetError(Custom { kind: Other, error: "bad sample" })))
+get(0)
+next: Some(Err(DatasetError(Custom { kind: Other, error: "bad sample" })))
+get(0)
+next: Some(Err(DatasetError(Custom { kind: Other, error: "bad sample" })))
+items_processed=0

@@ -1,0 +1,47 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.17s
+     Running `/Users/fdasdfdaf/.rustup/toolchains/nightly-aarch64-apple-darwin/bin/cargo-miri runner /var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-nms-x86-target/miri/x86_64-unknown-linux-gnu/debug/issue-008`
+Calling public Nms::nms
+error: Undefined Behavior: constructing invalid value of type [bool; 16]: at [4], encountered uninitialized memory, but expected a boolean
+   --> /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:200:37
+    |
+200 |             let mask_buf = unsafe { mask_buf.assume_init() };
+    |                                     ^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here
+    |
+    = help: this indicates a bug in the program: it performed an invalid operation, and caused Undefined Behavior
+    = help: see https://doc.rust-lang.org/nightly/reference/behavior-considered-undefined.html for further information
+    = note: stack backtrace:
+            0: burn_vision::backends::cpu::nms::suppress_overlapping_impl::<'_, macerator::backend::x86::v2::V2>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:200:37: 200:59
+            1: <burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_> as macerator::backend::arch::WithSimd>::with_simd::<macerator::backend::x86::v2::V2>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:125:1: 125:24
+            2: <<macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::Impl<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>> as macerator::backend::arch::NullaryFnOnce>::call
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/x86/v2.rs:149:17: 149:42
+            3: macerator::backend::x86::v2::V2::run_vectorized::imp::<<macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::Impl<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch.rs:131:17: 131:25
+            4: macerator::backend::x86::v2::V2::run_vectorized::<<macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::Impl<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch.rs:157:26: 157:32
+            5: <macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/x86/v2.rs:152:9: 152:42
+            6: macerator::backend::arch::x86::Arch::dispatch::<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch/x86.rs:46:25: 46:57
+            7: macerator::backend::arch::AutoArch::dispatch::<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch.rs:26:18: 26:37
+            8: burn_vision::backends::cpu::nms::suppress_overlapping::<'_>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:125:1: 125:24
+            9: burn_vision::backends::cpu::nms::nms_vec::<i32>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:102:9: 116:10
+            10: burn_vision::backends::cpu::nms::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:29:20: 29:64
+            11: <burn_core::backend::Flex as burn_vision::FloatVisionOps>::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/ops/base.rs:389:15: 389:58
+            12: <burn_core::backend::Dispatch as burn_vision::FloatVisionOps>::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/ops/base.rs:319:1: 334:3
+            13: <burn_core::Tensor<2> as burn_vision::Nms>::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/tensor.rs:169:31: 174:10
+            14: main
+                at src/008.rs:8:18: 8:58
+
+note: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace
+
+error: aborting due to 1 previous error
+

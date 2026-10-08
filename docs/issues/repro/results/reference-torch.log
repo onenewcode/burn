@@ -1,0 +1,6 @@
+/Users/fdasdfdaf/.cache/uv/archive-v0/OWTeBmcDara6IyG5qST74/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:368: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+torch 2.14.1
+004 Gaussian NLL: loss 499993.09375 variance gradient -499999506432.0
+010 GroupNorm [1, 2, 1]: [[[-0.9999949932098389], [0.9999949932098389]]]
+011 RMSNorm F64: [[1.0, 1.0]]

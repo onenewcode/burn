@@ -1,0 +1,294 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling libc v0.2.189
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+   Compiling cfg-if v1.0.5
+   Compiling autocfg v1.5.1
+   Compiling libm v0.2.16
+   Compiling once_cell v1.21.4
+   Compiling crossbeam-utils v0.8.23
+   Compiling memchr v2.8.3
+   Compiling pin-project-lite v0.2.17
+   Compiling zerocopy v0.8.59
+   Compiling num-traits v0.2.19
+   Compiling bitflags v2.13.2
+   Compiling stable_deref_trait v1.2.1
+   Compiling futures-core v0.3.34
+   Compiling find-msvc-tools v0.1.14
+   Compiling shlex v2.0.1
+   Compiling bytes v1.12.1
+   Compiling version_check v0.9.5
+   Compiling itoa v1.0.18
+   Compiling dunce v1.0.5
+   Compiling fs_extra v1.3.0
+   Compiling pkg-config v0.3.34
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling equivalent v1.0.2
+   Compiling aws-lc-rs v1.18.1
+   Compiling cfg_aliases v0.2.2
+   Compiling zeroize v1.9.0
+   Compiling getrandom v0.4.3
+   Compiling ident_case v1.0.1
+   Compiling utf8_iter v1.0.4
+   Compiling icu_normalizer_data v2.3.0
+   Compiling rand_core v0.10.1
+   Compiling icu_properties_data v2.3.0
+   Compiling http v1.5.0
+   Compiling tracing-core v0.1.36
+   Compiling heck v0.5.0
+   Compiling log v0.4.34
+   Compiling futures-task v0.3.34
+   Compiling slab v0.4.12
+   Compiling crossbeam-epoch v0.9.21
+   Compiling futures-util v0.3.34
+   Compiling http-body v1.1.0
+   Compiling rustls-pki-types v1.15.1
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling rustls v0.23.45
+   Compiling percent-encoding v2.3.2
+   Compiling zmij v1.0.23
+   Compiling portable-atomic v1.15.0
+   Compiling jobserver v0.1.35
+   Compiling cc v1.5.1
+   Compiling socket2 v0.6.5
+   Compiling mio v1.2.3
+   Compiling untrusted v0.9.0
+   Compiling httparse v1.10.1
+   Compiling parking v2.2.1
+   Compiling cmake v0.1.58
+   Compiling paste v1.0.15
+   Compiling crossbeam-deque v0.8.8
+   Compiling aws-lc-sys v0.45.0
+   Compiling synstructure v0.14.0
+   Compiling serde_derive v1.0.229
+   Compiling bytemuck_derive v1.12.1
+   Compiling zerocopy-derive v0.8.59
+   Compiling zerofrom-derive v0.1.8
+   Compiling bytemuck v1.25.2
+   Compiling yoke-derive v0.8.4
+   Compiling zerofrom v0.1.8
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling tokio-macros v2.7.2
+   Compiling tokio v1.53.1
+   Compiling chacha20 v0.10.2
+   Compiling thiserror v1.0.69
+   Compiling fastrand v2.5.0
+   Compiling serde_json v1.0.151
+   Compiling rayon-core v1.13.0
+   Compiling object v0.37.3
+   Compiling core-foundation-sys v0.8.7
+   Compiling try-lock v0.2.5
+   Compiling scopeguard v1.2.0
+   Compiling tower-service v0.3.3
+   Compiling parking_lot_core v0.9.12
+   Compiling subtle v2.6.1
+   Compiling lock_api v0.4.14
+   Compiling want v0.3.1
+   Compiling yoke v0.8.3
+   Compiling smallvec v1.16.2
+   Compiling rand v0.10.3
+   Compiling half v2.7.1
+   Compiling thiserror-impl v1.0.69
+   Compiling derive-new v0.7.0
+   Compiling event-listener v5.4.2
+   Compiling pulp v0.22.3
+   Compiling futures-channel v0.3.34
+   Compiling byteorder v1.5.0
+   Compiling adler2 v2.0.1
+   Compiling winnow v1.0.4
+   Compiling foldhash v0.2.0
+   Compiling thiserror v2.0.21
+   Compiling unicode-segmentation v1.13.3
+   Compiling gimli v0.32.3
+   Compiling ciborium-io v0.2.2
+   Compiling allocator-api2 v0.2.21
+   Compiling atomic-waker v1.1.2
+   Compiling convert_case v0.10.0
+   Compiling ciborium-ll v0.2.2
+   Compiling toml_parser v1.1.3+spec-1.1.0
+   Compiling hyper v1.11.1
+   Compiling addr2line v0.25.1
+   Compiling miniz_oxide v0.8.9
+   Compiling event-listener-strategy v0.5.4
+   Compiling num-complex v0.4.6
+   Compiling security-framework-sys v2.17.0
+   Compiling core-foundation v0.10.1
+   Compiling enum-as-inner v0.6.1
+   Compiling thiserror-impl v2.0.21
+   Compiling form_urlencoded v1.2.2
+   Compiling toml_datetime v1.1.1+spec-1.1.0
+   Compiling serde_spanned v1.1.1
+   Compiling tracing v0.1.44
+   Compiling cubecl-environment v0.11.0 (https://github.com/tracel-ai/cubecl?rev=9865237018abc5ca2b30724f729e1a0790ac503d#98652370)
+   Compiling concurrent-queue v2.5.0
+   Compiling sync_wrapper v1.0.2
+   Compiling unicode-xid v0.2.6
+   Compiling futures-io v0.3.34
+   Compiling toml_writer v1.1.2+spec-1.1.0
+   Compiling reborrow v0.5.5
+   Compiling fnv v1.0.7
+   Compiling base64 v0.23.1
+   Compiling ipnet v2.12.2
+   Compiling rustc-demangle v0.1.28
+   Compiling either v1.18.0
+   Compiling pulp-wasm-simd-flag v0.1.1
+   Compiling tower-layer v0.3.3
+   Compiling dyn-stack-macros v0.1.3
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling tower v0.5.3
+   Compiling hyper-util v0.1.21
+   Compiling dyn-stack v0.13.2
+   Compiling backtrace v0.3.76
+   Compiling rayon v1.12.0
+   Compiling toml v1.1.6+spec-1.1.0
+   Compiling darling_core v0.21.3
+   Compiling futures-lite v2.6.1
+   Compiling sysctl v0.6.0
+   Compiling derive_more-impl v2.1.1
+   Compiling async-channel v2.5.0
+   Compiling security-framework v3.7.0
+   Compiling tinystr v0.8.4
+   Compiling icu_locale_core v2.3.0
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling parking_lot v0.12.5
+   Compiling ciborium v0.2.2
+   Compiling hashbrown v0.17.1
+   Compiling icu_provider v2.3.1
+   Compiling spin v0.12.3
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling serde_bytes v0.11.19
+   Compiling cubecl-common v0.11.0 (https://github.com/tracel-ai/cubecl?rev=9865237018abc5ca2b30724f729e1a0790ac503d#98652370)
+   Compiling ahash v0.8.12
+   Compiling raw-cpuid v11.6.0
+   Compiling nom v8.0.0
+   Compiling etcetera v0.11.0
+   Compiling embassy-futures v0.1.2
+   Compiling seq-macro v0.3.6
+   Compiling unicode-width v0.2.2
+   Compiling web-time v1.1.0
+   Compiling oneshot v0.2.1
+   Compiling console v0.16.6
+   Compiling idna_adapter v1.2.2
+   Compiling derive_more v2.1.1
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+   Compiling darling_macro v0.21.3
+   Compiling float8 v0.7.0
+   Compiling tower-http v0.6.11
+   Compiling http-body-util v0.1.5
+   Compiling tynm v0.2.0
+   Compiling unit-prefix v0.5.2
+   Compiling indicatif v0.18.6
+   Compiling darling v0.21.3
+   Compiling hashbrown v0.16.1
+   Compiling cubecl-zspace v0.11.0 (https://github.com/tracel-ai/cubecl?rev=9865237018abc5ca2b30724f729e1a0790ac503d#98652370)
+   Compiling rand_distr v0.6.0
+   Compiling aho-corasick v1.1.5
+   Compiling uuid v1.26.1
+   Compiling data-encoding v2.11.1
+   Compiling strsim v0.11.1
+   Compiling darling_core v0.24.1
+   Compiling equator-macro v0.4.2
+   Compiling macerator v0.5.1
+   Compiling regex-syntax v0.8.11
+   Compiling equator v0.4.2
+   Compiling gemm-common v0.19.0
+   Compiling moddef v0.3.0
+   Compiling rustix v1.1.5
+   Compiling errno v0.3.14
+   Compiling option-ext v0.2.0
+   Compiling burn-dispatch v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-dispatch)
+   Compiling enumset_derive v0.15.0
+   Compiling darling_macro v0.24.1
+   Compiling darling v0.24.1
+   Compiling enumset v1.1.14
+   Compiling regex-automata v0.4.18
+   Compiling regex v1.13.1
+   Compiling dirs-sys v0.5.0
+   Compiling strum_macros v0.28.0
+   Compiling aligned-vec v0.6.4
+   Compiling burn-backend-extension v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-backend-extension)
+   Compiling rmp v0.8.15
+   Compiling csv-core v0.1.13
+   Compiling burn-einsum v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-einsum)
+   Compiling gemm-f32 v0.19.0
+   Compiling gemm-c64 v0.19.0
+   Compiling gemm-f16 v0.19.0
+   Compiling gemm-c32 v0.19.0
+   Compiling gemm-f64 v0.19.0
+   Compiling gemm v0.19.0
+   Compiling ryu v1.0.23
+   Compiling csv v1.4.0
+   Compiling burn-derive v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-derive)
+   Compiling macerator-macros v0.3.2
+   Compiling strum v0.28.0
+   Compiling rmp-serde v1.3.1
+   Compiling dirs v7.0.0
+   Compiling tempfile v3.27.0
+   Compiling sanitize-filename v0.6.0
+   Compiling colored v3.1.1
+   Compiling semver v1.0.28
+   Compiling rustc_version v0.4.1
+   Compiling indexmap v2.14.2
+   Compiling rstest_macros v0.27.0
+   Compiling lazy_static v1.5.1
+   Compiling sharded-slab v0.1.7
+   Compiling tracing-log v0.2.0
+   Compiling burn-dataset v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-dataset)
+   Compiling thread_local v1.1.10
+   Compiling powerfmt v0.2.0
+   Compiling deranged v0.5.8
+   Compiling relative-path v1.9.3
+   Compiling nu-ansi-term v0.50.3
+   Compiling num-conv v0.2.2
+   Compiling time-core v0.1.9
+   Compiling glob v0.3.4
+   Compiling toml_edit v0.25.15+spec-1.1.0
+   Compiling tracing-subscriber v0.3.23
+   Compiling crossbeam-channel v0.5.17
+   Compiling symlink v0.1.0
+   Compiling futures-timer v3.0.4
+   Compiling proc-macro-crate v3.5.0
+   Compiling time v0.3.55
+   Compiling tracing-appender v0.2.5
+   Compiling rstest v0.27.0
+   Compiling rustls-webpki v0.103.15
+   Compiling tokio-rustls v0.26.6
+   Compiling rustls-platform-verifier v0.7.1
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.13.5
+   Compiling burn-std v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-std)
+   Compiling burn-backend v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-backend)
+   Compiling burn-pack v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-pack)
+   Compiling burn-ir v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-ir)
+   Compiling burn-autodiff v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-autodiff)
+   Compiling burn-flex v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-flex)
+   Compiling burn-tensor v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-tensor)
+   Compiling burn-core v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-core)
+   Compiling burn-linalg v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-linalg)
+   Compiling burn-optim v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-optim)
+   Compiling burn-signal v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-signal)
+   Compiling burn-nn v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-nn)
+   Compiling burn-train v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-train)
+warning: method `merge` is never used
+   --> /Volumes/HIKSEMI/code/burn/crates/burn-train/src/learner/summary.rs:153:19
+    |
+ 80 | impl LearnerSummary {
+    | ------------------- method in this implementation
+...
+153 |     pub(crate) fn merge(mut self, other: LearnerSummary) -> Self {
+    |                   ^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `burn-train` (lib) generated 1 warning
+   Compiling burn-issue-repro v0.1.0 (/Volumes/HIKSEMI/code/burn/docs/issues/repro)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1m 02s

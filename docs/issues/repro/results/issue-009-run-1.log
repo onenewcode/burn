@@ -1,0 +1,278 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling autocfg v1.5.1
+   Compiling libm v0.2.16
+   Compiling cfg-if v1.0.5
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+   Compiling zerocopy v0.8.59
+   Compiling memchr v2.8.3
+   Compiling libc v0.2.189
+   Compiling crossbeam-utils v0.8.23
+   Compiling num-traits v0.2.19
+   Compiling version_check v0.9.5
+   Compiling simd-adler32 v0.3.10
+   Compiling bitflags v2.13.2
+   Compiling ident_case v1.0.1
+   Compiling paste v1.0.15
+   Compiling adler2 v2.0.1
+   Compiling once_cell v1.21.4
+   Compiling cfg_aliases v0.2.2
+   Compiling rand_core v0.10.1
+   Compiling getrandom v0.4.3
+   Compiling log v0.4.34
+   Compiling thiserror v2.0.21
+   Compiling miniz_oxide v0.8.9
+   Compiling pulp v0.22.3
+   Compiling nom v8.0.0
+   Compiling syn v3.0.6
+   Compiling syn v2.0.119
+   Compiling pin-project-lite v0.2.17
+   Compiling zmij v1.0.23
+   Compiling cpufeatures v0.3.1
+   Compiling parking v2.2.1
+   Compiling chacha20 v0.10.2
+   Compiling raw-cpuid v11.6.0
+   Compiling itoa v1.0.18
+   Compiling portable-atomic v1.15.0
+   Compiling reborrow v0.5.5
+   Compiling fastrand v2.5.0
+   Compiling object v0.37.3
+   Compiling parking_lot_core v0.9.12
+   Compiling pulp-wasm-simd-flag v0.1.1
+   Compiling serde_json v1.0.151
+   Compiling scopeguard v1.2.0
+   Compiling lock_api v0.4.14
+   Compiling serde_derive v1.0.229
+   Compiling bytemuck_derive v1.12.1
+   Compiling zerocopy-derive v0.8.59
+   Compiling thiserror-impl v2.0.21
+   Compiling rand v0.10.3
+   Compiling bytemuck v1.25.2
+   Compiling derive-new v0.7.0
+   Compiling event-listener v5.4.2
+   Compiling winnow v1.0.4
+   Compiling ciborium-io v0.2.2
+   Compiling unicode-segmentation v1.13.3
+   Compiling equivalent v1.0.2
+   Compiling foldhash v0.2.0
+   Compiling futures-core v0.3.34
+   Compiling gimli v0.32.3
+   Compiling allocator-api2 v0.2.21
+   Compiling convert_case v0.10.0
+   Compiling toml_parser v1.1.3+spec-1.1.0
+   Compiling event-listener-strategy v0.5.4
+   Compiling serde_spanned v1.1.1
+   Compiling toml_datetime v1.1.1+spec-1.1.0
+   Compiling concurrent-queue v2.5.0
+   Compiling cubecl-environment v0.11.0 (https://github.com/tracel-ai/cubecl?rev=9865237018abc5ca2b30724f729e1a0790ac503d#98652370)
+   Compiling unicode-xid v0.2.6
+   Compiling addr2line v0.25.1
+   Compiling toml_writer v1.1.2+spec-1.1.0
+   Compiling rustc-demangle v0.1.28
+   Compiling dyn-stack-macros v0.1.3
+   Compiling futures-io v0.3.34
+   Compiling fnv v1.0.7
+   Compiling futures-lite v2.6.1
+   Compiling darling_core v0.21.3
+   Compiling toml v1.1.6+spec-1.1.0
+   Compiling derive_more-impl v2.1.1
+   Compiling async-channel v2.5.0
+   Compiling hashbrown v0.17.1
+   Compiling serde_bytes v0.11.19
+   Compiling cubecl-common v0.11.0 (https://github.com/tracel-ai/cubecl?rev=9865237018abc5ca2b30724f729e1a0790ac503d#98652370)
+   Compiling ahash v0.8.12
+   Compiling num-complex v0.4.6
+   Compiling dyn-stack v0.13.2
+   Compiling etcetera v0.11.0
+   Compiling web-time v1.1.0
+   Compiling bytes v1.12.1
+   Compiling embassy-futures v0.1.2
+   Compiling crossbeam-epoch v0.9.21
+   Compiling backtrace v0.3.76
+   Compiling seq-macro v0.3.6
+   Compiling oneshot v0.2.1
+   Compiling darling_macro v0.21.3
+   Compiling spin v0.12.3
+   Compiling tynm v0.2.0
+   Compiling crossbeam-deque v0.8.8
+   Compiling derive_more v2.1.1
+   Compiling smallvec v1.16.2
+   Compiling parking_lot v0.12.5
+   Compiling cubecl-zspace v0.11.0 (https://github.com/tracel-ai/cubecl?rev=9865237018abc5ca2b30724f729e1a0790ac503d#98652370)
+   Compiling darling v0.21.3
+   Compiling hashbrown v0.16.1
+   Compiling rand_distr v0.6.0
+   Compiling half v2.7.1
+   Compiling rayon-core v1.13.0
+   Compiling uuid v1.26.1
+   Compiling data-encoding v2.11.1
+   Compiling ciborium-ll v0.2.2
+   Compiling float8 v0.7.0
+   Compiling ciborium v0.2.2
+   Compiling equator-macro v0.4.2
+   Compiling num-integer v0.1.47
+   Compiling equator v0.4.2
+   Compiling anyhow v1.0.104
+   Compiling strsim v0.11.1
+   Compiling either v1.18.0
+   Compiling darling_core v0.24.1
+   Compiling num-bigint v0.4.8
+   Compiling gemm-common v0.19.0
+   Compiling crc32fast v1.5.2
+   Compiling stable_deref_trait v1.2.1
+   Compiling arrayvec v0.7.8
+   Compiling as-slice v0.2.1
+   Compiling num-rational v0.4.2
+   Compiling aho-corasick v1.1.5
+   Compiling built v0.8.1
+   Compiling regex-syntax v0.8.11
+   Compiling rustix v1.1.5
+   Compiling av-scenechange v0.14.1
+   Compiling darling_macro v0.24.1
+   Compiling darling v0.24.1
+   Compiling enumset_derive v0.15.0
+   Compiling regex-automata v0.4.18
+   Compiling enumset v1.1.14
+   Compiling rayon v1.12.0
+   Compiling aligned-vec v0.6.4
+   Compiling v_frame v0.3.9
+   Compiling rav1e v0.8.1
+   Compiling aligned v0.4.3
+   Compiling arg_enum_proc_macro v0.3.4
+   Compiling profiling-procmacros v1.0.18
+   Compiling errno v0.3.14
+   Compiling miniz_oxide v0.9.1
+   Compiling no_std_io2 v0.9.4
+   Compiling pastey v0.1.1
+   Compiling burn-dispatch v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-dispatch)
+   Compiling y4m v0.8.0
+   Compiling prettyplease v0.3.0
+   Compiling quick-error v2.0.1
+   Compiling heck v0.5.0
+   Compiling option-ext v0.2.0
+   Compiling linux-raw-sys v0.12.1
+   Compiling dirs-sys v0.5.0
+   Compiling strum_macros v0.28.0
+   Compiling gemm-f32 v0.19.0
+   Compiling gemm-f64 v0.19.0
+   Compiling gemm-c32 v0.19.0
+   Compiling gemm-f16 v0.19.0
+   Compiling gemm-c64 v0.19.0
+   Compiling flate2 v1.1.10
+   Compiling bitstream-io v4.10.0
+   Compiling gemm v0.19.0
+   Compiling profiling v1.0.18
+   Compiling av1-grain v0.2.5
+   Compiling maybe-rayon v0.1.1
+   Compiling regex v1.13.1
+   Compiling burn-std v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-std)
+   Compiling itertools v0.14.0
+   Compiling num-derive v0.4.2
+   Compiling burn-backend-extension v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-backend-extension)
+   Compiling rmp v0.8.15
+   Compiling simd_helpers v0.1.0
+   Compiling csv-core v0.1.13
+   Compiling matrixmultiply v0.3.11
+   Compiling ryu v1.0.23
+   Compiling burn-backend v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-backend)
+   Compiling new_debug_unreachable v1.0.6
+   Compiling weezl v0.1.12
+   Compiling noop_proc_macro v0.3.0
+   Compiling imgref v1.12.3
+   Compiling burn-einsum v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-einsum)
+   Compiling zune-core v0.5.3
+   Compiling zune-jpeg v0.5.15
+   Compiling burn-ir v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-ir)
+   Compiling burn-autodiff v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-autodiff)
+   Compiling burn-derive v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-derive)
+   Compiling tempfile v3.27.0
+   Compiling loop9 v0.1.5
+   Compiling csv v1.4.0
+   Compiling rmp-serde v1.3.1
+   Compiling sanitize-filename v0.6.0
+   Compiling strum v0.28.0
+   Compiling dirs v7.0.0
+   Compiling avif-serialize v0.8.9
+   Compiling macerator v0.5.1
+   Compiling zune-inflate v0.2.54
+   Compiling fdeflate v0.3.7
+   Compiling rgb v0.8.53
+   Compiling color_quant v1.1.0
+   Compiling lebe v0.5.3
+   Compiling byteorder-lite v0.1.0
+   Compiling rawpointer v0.2.1
+   Compiling pxfm v0.1.30
+   Compiling bit_field v0.10.3
+   Compiling byteorder v1.5.0
+   Compiling fax v0.2.7
+   Compiling colored v3.1.1
+   Compiling burn-pack v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-pack)
+   Compiling tiff v0.11.3
+   Compiling exr v1.74.2
+   Compiling image-webp v0.2.4
+   Compiling png v0.18.1
+   Compiling gif v0.14.2
+   Compiling bon-macros v3.10.1
+   Compiling macerator-macros v0.3.2
+   Compiling qoi v0.4.1
+   Compiling burn-flex v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-flex)
+   Compiling moddef v0.3.0
+   Compiling ndarray v0.17.2
+   Compiling moxcms v0.8.1
+   Compiling burn-dataset v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-dataset)
+   Compiling bon v3.10.1
+   Compiling ravif v0.13.0
+   Compiling image v0.25.10
+   Compiling burn-tensor v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-tensor)
+   Compiling burn-core v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-core)
+   Compiling burn-vision v0.22.0 (/Volumes/HIKSEMI/code/burn/crates/burn-vision)
+   Compiling burn-issue-repro v0.1.0 (/Volumes/HIKSEMI/code/burn/docs/issues/repro)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 31.60s
+     Running `/Users/fdasdfdaf/.rustup/toolchains/nightly-aarch64-apple-darwin/bin/cargo-miri runner /var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-nms-x86-target/miri/x86_64-unknown-linux-gnu/debug/issue-009`
+Calling public Nms::nms
+error: Undefined Behavior: accessing memory based on pointer with alignment 1, but alignment 4 is required
+   --> /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:162:22
+    |
+162 |                 4 => *(suppressed.as_ptr().add(i) as *const u32) == 0x01010101,
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Undefined Behavior occurred here
+    |
+    = help: this usually indicates that your program performed an invalid operation and caused Undefined Behavior
+    = help: but due to `-Zmiri-symbolic-alignment-check`, alignment errors can also be false positives
+    = note: stack backtrace:
+            0: burn_vision::backends::cpu::nms::suppress_overlapping_impl::<'_, macerator::backend::x86::v2::V2>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:162:22: 162:65
+            1: <burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_> as macerator::backend::arch::WithSimd>::with_simd::<macerator::backend::x86::v2::V2>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:125:1: 125:24
+            2: <<macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::Impl<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>> as macerator::backend::arch::NullaryFnOnce>::call
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/x86/v2.rs:149:17: 149:42
+            3: macerator::backend::x86::v2::V2::run_vectorized::imp::<<macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::Impl<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch.rs:131:17: 131:25
+            4: macerator::backend::x86::v2::V2::run_vectorized::<<macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::Impl<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch.rs:157:26: 157:32
+            5: <macerator::backend::x86::v2::V2 as macerator::backend::Simd>::vectorize::<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/x86/v2.rs:152:9: 152:42
+            6: macerator::backend::arch::x86::Arch::dispatch::<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch/x86.rs:46:25: 46:57
+            7: macerator::backend::arch::AutoArch::dispatch::<burn_vision::backends::cpu::nms::suppress_overlapping::suppress_overlapping_struct<'_, '_>>
+                at /Users/fdasdfdaf/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/macerator-0.5.1/src/backend/arch.rs:26:18: 26:37
+            8: burn_vision::backends::cpu::nms::suppress_overlapping::<'_>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:125:1: 125:24
+            9: burn_vision::backends::cpu::nms::nms_vec::<i32>
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:102:9: 116:10
+            10: burn_vision::backends::cpu::nms::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/backends/cpu/nms.rs:29:20: 29:64
+            11: <burn_core::backend::Flex as burn_vision::FloatVisionOps>::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/ops/base.rs:389:15: 389:58
+            12: <burn_core::backend::Dispatch as burn_vision::FloatVisionOps>::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/ops/base.rs:319:1: 334:3
+            13: <burn_core::Tensor<2> as burn_vision::Nms>::nms
+                at /Volumes/HIKSEMI/code/burn/crates/burn-vision/src/tensor.rs:169:31: 174:10
+            14: main
+                at src/008.rs:8:18: 8:58
+
+note: some details are omitted, run with `MIRIFLAGS=-Zmiri-backtrace=full` for a verbose backtrace
+
+error: aborting due to 1 previous error
+

@@ -1,0 +1,15 @@
+longer prediction: WER=0% (expected 50%)
+
+thread 'main' (931709) panicked at /Volumes/HIKSEMI/code/burn/crates/burn-train/src/metric/wer.rs:77:43:
+range end index 2 out of range for slice of length 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+shorter prediction panicked: true
+longer prediction: BLEU-1=100% (expected 66.6667%), ROUGE-L=100% (expected 80%)
+
+thread 'main' (931709) panicked at /Volumes/HIKSEMI/code/burn/crates/burn-train/src/metric/bleu.rs:242:43:
+range end index 2 out of range for slice of length 1
+
+thread 'main' (931709) panicked at /Volumes/HIKSEMI/code/burn/crates/burn-train/src/metric/rouge.rs:93:43:
+range end index 2 out of range for slice of length 1
+shorter prediction: BLEU and ROUGE both panicked
+equal-length controls: WER=0%, BLEU-1=100%, ROUGE-L=100%

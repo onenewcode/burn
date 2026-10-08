@@ -1,0 +1,2 @@
+probability input: loss=0, gradient=[NaN, NaN]
+logits control: gradient=[0.0, -2e-44]

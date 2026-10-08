@@ -1,0 +1,87 @@
+[package]
+name = "burn-issue-repro"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+# Keep review reproductions separate from the production workspace.
+[workspace]
+
+[features]
+runtime = ["dep:burn-core", "dep:burn-nn", "dep:burn-train", "dep:burn-linalg", "dep:burn-signal"]
+vision = ["dep:burn-core", "dep:burn-vision"]
+network = ["dep:burn-std"]
+
+[dependencies]
+burn-vision = { path = "../../../crates/burn-vision", default-features = false, features = ["std", "flex"], optional = true }
+burn-std = { path = "../../../crates/burn-std", default-features = false, features = ["std", "network"], optional = true }
+burn-core = { path = "../../../crates/burn-core", default-features = false, features = ["std", "flex", "autodiff", "dataset"], optional = true }
+burn-nn = { path = "../../../crates/burn-nn", default-features = false, features = ["std"], optional = true }
+burn-train = { path = "../../../crates/burn-train", default-features = false, optional = true }
+burn-linalg = { path = "../../../crates/burn-linalg", default-features = false, features = ["std"], optional = true }
+burn-signal = { path = "../../../crates/burn-signal", default-features = false, features = ["std", "flex"], optional = true }
+
+[[bin]]
+name = "issue-001"
+path = "src/001.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-002"
+path = "src/002.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-003"
+path = "src/003.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-004"
+path = "src/004.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-005"
+path = "src/005.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-006"
+path = "src/006.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-007"
+path = "src/007.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-008"
+path = "src/008.rs"
+required-features = ["vision"]
+
+[[bin]]
+name = "issue-009"
+path = "src/009.rs"
+required-features = ["vision"]
+
+[[bin]]
+name = "issue-010"
+path = "src/010.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-011"
+path = "src/011.rs"
+required-features = ["runtime"]
+
+[[bin]]
+name = "issue-012"
+path = "src/012.rs"
+required-features = ["network"]
+
+[[bin]]
+name = "issue-013"
+path = "src/013.rs"
+required-features = ["network"]

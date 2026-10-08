@@ -1,0 +1,2 @@
+variance=1e-8: gradient=0, PyTorch-compatible expectation=-499999500000
+variance=0.5 control: gradient=-1 (expected -1)

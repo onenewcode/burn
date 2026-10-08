@@ -1,0 +1,6 @@
+
+thread 'main' (932186) panicked at /Volumes/HIKSEMI/code/burn/crates/burn-nn/src/modules/norm/group.rs:160:9:
+input rank for GroupNorm should be at least 3, but got 2
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+GroupNorm [1, 2, 1]: panicked (expected approximately [-1, 1])
+duplicated batch control: [-0.999995, 0.999995, -0.999995, 0.999995]

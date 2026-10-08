@@ -1,0 +1,6 @@
+
+thread 'main' (932143) panicked at /Volumes/HIKSEMI/code/burn/crates/burn-signal/src/functions/stft.rs:46:9:
+stft: n_fft must be a power of two, got 400. True non-power-of-two DFT support is tracked as a follow-up (Bluestein's algorithm).
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+default n_fft=400, panicked=true
+n_fft=512 control: shape=[1, 9, 257, 2]

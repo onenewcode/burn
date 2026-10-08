@@ -1,0 +1,2 @@
+L2 at zero: gradient=[NaN, NaN]
+inactive triplet: loss=0, gradient=[NaN, NaN] (expected [0, 0])

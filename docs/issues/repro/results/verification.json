@@ -1,0 +1,406 @@
+{
+  "status": "all_13_reproduced_twice",
+  "meaning": "Success means the documented defects reproduced; it does not mean the library is correct.",
+  "started_utc": "2026-10-08T08:08:35.148585+00:00",
+  "commit": "20426b9cd5fb547e247b05575cf771fd37676726",
+  "rustc": "rustc 1.97.0-nightly (f964de49b 2026-05-07)",
+  "source_sha256": {
+    "crates/burn-train/src/metric/wer.rs": "57a8ff30c104e3b7b0efa8d5b647535ee23cce60b2c7c9b8f8c33683b25b87b0",
+    "crates/burn-train/src/metric/bleu.rs": "51bacbdacf8b6c0d94a1b5b06613b698a46e45e613201e4393e835a292da7a82",
+    "crates/burn-train/src/metric/rouge.rs": "b15217c70fc1919bc408a38bd729334ae59552f4ac1793abe8f36ddf035066fb",
+    "crates/burn-nn/src/loss/binary_cross_entropy.rs": "827186b964ddb80d443a67aa38418e914f80905223826d76f6546fc61fbff3d1",
+    "crates/burn-nn/src/loss/gaussian_nll.rs": "37cdba149950fda049ff9be6509ba691d688868027861183ec40921e75433e8f",
+    "crates/burn-linalg/src/functions/vector_norm.rs": "cdfb03ccb119c8bbb3bfd75460a748d3a88ba634f188b861ff2258bbaf49645a",
+    "crates/burn-nn/src/loss/triplet_margin.rs": "bad2e9c36070199abce07827d28d8c6ce60461fc2dbe6a3cbc8ca9330e039607",
+    "crates/burn-autodiff/src/ops/tensor.rs": "0aa614cfd9e89621d73f92cd92dbadfed397cc10c043f74cff56ba14c84aa1bc",
+    "crates/burn-core/src/data/dataloader/batch.rs": "eb0ae88a5c5dd2d642d4c66bc737a941a306b91a511564d21de613830d31e637",
+    "crates/burn-core/src/data/dataloader/multithread.rs": "2a71293d32ef93ec009e95330e9bf282182cf8e32385e40fea479693c847d037",
+    "crates/burn-signal/src/functions/stft.rs": "4a743b5bb33df1a041abbad4d87a0bc36e25d47ad81878d3198e1383b98391bc",
+    "crates/burn-vision/src/backends/cpu/nms.rs": "c04def65f593049e7fc51f4d14f656439369dba2fa71228b762b28f2cffac132",
+    "crates/burn-nn/src/modules/norm/group.rs": "1e79250f3ebe35c7f957c18f006a10b1307903bf58985c06638bd13490066300",
+    "crates/burn-nn/src/modules/norm/rms.rs": "f3f05ba6342d890bd6b5807c1dd4d6371f872e62417a9460916c4ef32a5d989f",
+    "crates/burn-std/src/network.rs": "f5a2b35b04479aa9731a0764484c953c2048fa589698879eba104b2ca28ee1d4"
+  },
+  "checks": [
+    {
+      "name": "format",
+      "command": [
+        "cargo",
+        "fmt",
+        "--manifest-path",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/Cargo.toml",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "build",
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--manifest-path",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/Cargo.toml",
+        "--features",
+        "runtime,network",
+        "--bins",
+        "--target-dir",
+        "/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-001-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-001"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-001-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-001"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-002-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-002"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-002-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-002"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-003-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-003"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-003-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-003"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-004-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-004"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-004-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-004"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-005-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-005"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-005-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-005"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-006-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-006"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-006-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-006"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-007-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-007"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-007-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-007"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-010-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-010"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-010-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-010"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-011-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-011"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-011-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-011"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-012-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-012"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-012-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-012"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-013-run-1",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-013"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-013-run-2",
+      "command": [
+        "/private/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-issue-audit-target/debug/issue-013"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    },
+    {
+      "name": "issue-009-run-1",
+      "command": [
+        "cargo",
+        "+nightly",
+        "miri",
+        "run",
+        "--offline",
+        "--manifest-path",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/Cargo.toml",
+        "--features",
+        "vision",
+        "--bin",
+        "issue-009",
+        "--target",
+        "x86_64-unknown-linux-gnu",
+        "--target-dir",
+        "/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-nms-x86-target"
+      ],
+      "exit_code": 1,
+      "expected_error": "alignment 1, but alignment 4 is required",
+      "passed": true,
+      "environment_overrides": {
+        "MIRIFLAGS": "-Zmiri-symbolic-alignment-check",
+        "RUSTFLAGS": "-C target-cpu=x86-64-v2"
+      }
+    },
+    {
+      "name": "issue-009-run-2",
+      "command": [
+        "cargo",
+        "+nightly",
+        "miri",
+        "run",
+        "--offline",
+        "--manifest-path",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/Cargo.toml",
+        "--features",
+        "vision",
+        "--bin",
+        "issue-009",
+        "--target",
+        "x86_64-unknown-linux-gnu",
+        "--target-dir",
+        "/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-nms-x86-target"
+      ],
+      "exit_code": 1,
+      "expected_error": "alignment 1, but alignment 4 is required",
+      "passed": true,
+      "environment_overrides": {
+        "MIRIFLAGS": "-Zmiri-symbolic-alignment-check",
+        "RUSTFLAGS": "-C target-cpu=x86-64-v2"
+      }
+    },
+    {
+      "name": "issue-008-run-1",
+      "command": [
+        "cargo",
+        "+nightly",
+        "miri",
+        "run",
+        "--offline",
+        "--manifest-path",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/Cargo.toml",
+        "--features",
+        "vision",
+        "--bin",
+        "issue-008",
+        "--target",
+        "x86_64-unknown-linux-gnu",
+        "--target-dir",
+        "/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-nms-x86-target"
+      ],
+      "exit_code": 1,
+      "expected_error": "constructing invalid value of type [bool; 16]",
+      "passed": true,
+      "environment_overrides": {
+        "MIRIFLAGS": "-Zmiri-disable-alignment-check",
+        "RUSTFLAGS": "-C target-cpu=x86-64-v2"
+      }
+    },
+    {
+      "name": "issue-008-run-2",
+      "command": [
+        "cargo",
+        "+nightly",
+        "miri",
+        "run",
+        "--offline",
+        "--manifest-path",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/Cargo.toml",
+        "--features",
+        "vision",
+        "--bin",
+        "issue-008",
+        "--target",
+        "x86_64-unknown-linux-gnu",
+        "--target-dir",
+        "/var/folders/5n/7zk0bxj13qv9zd1cwbt145hc0000gn/T/burn-nms-x86-target"
+      ],
+      "exit_code": 1,
+      "expected_error": "constructing invalid value of type [bool; 16]",
+      "passed": true,
+      "environment_overrides": {
+        "MIRIFLAGS": "-Zmiri-disable-alignment-check",
+        "RUSTFLAGS": "-C target-cpu=x86-64-v2"
+      }
+    },
+    {
+      "name": "reference-torch",
+      "command": [
+        "uv",
+        "run",
+        "--isolated",
+        "--python",
+        "3.12",
+        "--with",
+        "torch==2.14.1",
+        "python",
+        "/Volumes/HIKSEMI/code/burn/docs/issues/repro/reference_torch.py"
+      ],
+      "exit_code": 0,
+      "expected_error": null,
+      "passed": true,
+      "environment_overrides": {}
+    }
+  ],
+  "finished_utc": "2026-10-08T08:10:24.601824+00:00"
+}
