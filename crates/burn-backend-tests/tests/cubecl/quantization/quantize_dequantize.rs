@@ -224,20 +224,16 @@ fn should_quantize_dequantize_symmetric_arange_128x256_q8s_packed() {
 }
 
 /// Packing into `u32` needs the innermost dim to be a multiple of the values a word holds, so
-/// this shape is refused. The quantize runs on the device's thread, so the refusal comes back
-/// when the tensor is read, and the device keeps running.
+/// this shape is refused, either immediately or when the device's error is read back.
 #[cfg(not(feature = "fusion"))]
 #[test]
+#[should_panic(expected = "Can't store in u32")]
 fn should_refuse_a_shape_that_cannot_store_quants() {
     let device = Default::default();
     let scheme = QuantScheme::default();
 
-    let error = TestTensor::<2>::from_data([[1.0, 6.35], [2.0, 3.0], [1.0, 3.0]], &device)
+    TestTensor::<2>::from_data([[1.0, 6.35], [2.0, 3.0], [1.0, 3.0]], &device)
         .quantize_dynamic(&scheme)
         .try_into_data()
-        .expect_err("a last dim of 2 does not fill a word of 4 values");
-    assert!(
-        format!("{error:?}").contains("Can't store in u32"),
-        "refused for another reason: {error:?}"
-    );
+        .unwrap();
 }

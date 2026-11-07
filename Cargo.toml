@@ -225,11 +225,11 @@ burn-wgpu = { path = "crates/burn-wgpu", version = "0.23.0-pre.1", default-featu
 pytorch-reader = { path = "crates/pytorch-reader", version = "0.23.0-pre.1" }
 
 ### For the main burn branch. ###
-cubecl = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "f1bea1d8c48a2d45e2c7277bbce94892792edc86" }
-cubecl-common = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "f1bea1d8c48a2d45e2c7277bbce94892792edc86" }
-cubecl-environment = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "f1bea1d8c48a2d45e2c7277bbce94892792edc86" }
-cubecl-zspace = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "f1bea1d8c48a2d45e2c7277bbce94892792edc86" }
-cubek = { git = "https://github.com/onenewcode/cubek", default-features = false, rev = "de284881cbf70f26a2fc64181dba1827827bb573" }
+cubecl = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "868237f9d7c3aaf02b745b7b9b28873eda5380ad" }
+cubecl-common = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "868237f9d7c3aaf02b745b7b9b28873eda5380ad" }
+cubecl-environment = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "868237f9d7c3aaf02b745b7b9b28873eda5380ad" }
+cubecl-zspace = { git = "https://github.com/onenewcode/cubecl", default-features = false, rev = "868237f9d7c3aaf02b745b7b9b28873eda5380ad" }
+cubek = { git = "https://github.com/onenewcode/cubek", default-features = false, rev = "780da099ce4f5ce94a3c1fb5f5c316a81f80df50" }
 ### For local development. ###
 # cubecl = { path = "../cubecl/crates/cubecl", default-features = false }
 # cubecl-common = { path = "../cubecl/crates/cubecl-common", default-features = false }
